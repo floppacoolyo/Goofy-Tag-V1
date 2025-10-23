@@ -1,102 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hollow Tags V2 – Creator Minimum Requirements</title>
-  <meta name="description" content="Creator Minimum Requirements for YouTube and TikTok with additional notes and safety reminders under Hollow Tags V2." />
-  <style>
-    /* Same modern styling as before */
-    :root{
-      --bg: #0b0d10;
-      --panel: #11151a;
-      --card: #151a21;
-      --text: #e8edf3;
-      --muted: #a6b0c0;
-      --primary: #6aa9ff;
-      --accent: #7af0d8;
-      --warning: #ffd166;
-      --success: #5ee28a;
-      --danger: #ff6b6b;
-      --border: #202734;
-      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
-      --radius-lg: 16px;
-      --radius-sm: 10px;
-      --radius-xs: 8px;
-      --gap: 16px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg: #f6f8fb;
-        --panel: #ffffff;
-        --card: #ffffff;
-        --text: #0f1722;
-        --muted: #52607a;
-        --primary: #2458e6;
-        --accent: #0fb9b1;
-        --warning: #e0a800;
-        --success: #22c55e;
-        --danger: #e53935;
-        --border: #e7ecf3;
-        --shadow: 0 10px 30px rgba(16,24,40,.08);
-      }
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hollow Tags V2 – Creator Minimum Requirements</title>
+<meta name="color-scheme" content="dark" />
+<style>
+  :root {
+    --bg: #0b0d10;
+    --panel: #0f1318;
+    --card: #141a22;
+    --text: #e8edf3;
+    --muted: #a6b0c0;
+    --primary: #6aa9ff;   /* blue glow */
+    --accent: #7af0d8;    /* teal glow */
+    --success: #5ee28a;   /* green glow */
+    --border: #202734;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius-lg: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 8px;
 
-    /* Base styles same as previous version */
-    * { box-sizing: border-box; }
-    body{
-      margin: 0;
-      font: 500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 800px at 10% -10%, rgba(106,169,255,.15), transparent 60%),
-                  radial-gradient(1200px 800px at 100% 10%, rgba(122,240,216,.12), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-    }
-    .wrap{ max-width: 960px; margin: 40px auto; padding: 0 20px; }
-    header.hero{
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
-    }
-    .eyebrow{
-      display: inline-block;
-      background: rgba(106,169,255,.12);
-      color: var(--primary);
-      border: 1px solid rgba(106,169,255,.25);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-    }
-    h1{
-      margin: 12px 0 6px;
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 800;
-    }
-    .sub{ color: var(--muted); margin: 0; }
+    /* Glow intensities */
+    --glow-outer: 0 0 24px rgba(106,169,255,.35), 0 0 48px rgba(122,240,216,.25);
+    --glow-green: 0 0 18px rgba(94,226,138,.45), 0 0 36px rgba(94,226,138,.25);
+    --glow-blue: 0 0 18px rgba(106,169,255,.45), 0 0 36px rgba(106,169,255,.25);
+    --glow-teal: 0 0 18px rgba(122,240,216,.5), 0 0 36px rgba(122,240,216,.28);
+  }
 
-    /* Cards and notes same as before */
-    .grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 24px; }
-    .card{ border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; background: var(--card); box-shadow: var(--shadow); }
-    .card h2{ margin: 0 0 8px; font-size: 20px; }
-    .pill{ display: inline-block; background: rgba(95,231,155,.12); color: var(--success); border: 1px solid rgba(95,231,155,.3); padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 14px; }
-    ul.requirements{ list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
-    .req{ display: flex; gap: 10px; align-items: center; border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 10px; }
-    .req strong{ font-weight: 700; }
-    .req small{ color: var(--muted); display: block; }
+  /* Background with subtle animated nebula */
+  body {
+    margin: 0;
+    font: 500 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+    color: var(--text);
+    background:
+      radial-gradient(1200px 800px at 10% -10%, rgba(106,169,255,.12), transparent 60%),
+      radial-gradient(1200px 800px at 100% 10%, rgba(122,240,216,.10), transparent 60%),
+      var(--bg);
+    min-height: 100dvh;
+  }
 
-    .notes{ margin-top: 24px; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; background: var(--card); box-shadow: var(--shadow); }
-    .notes h3{ margin: 0 0 10px; font-size: 18px; }
-    .notes ul{ margin: 0; padding-left: 18px; display: grid; gap: 8px; }
-    .notes li::marker{ color: var(--accent); }
+  .wrap { max-width: 960px; margin: 40px auto; padding: 0 20px; }
 
-    .footer{ margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .goodluck{ background: linear-gradient(90deg, rgba(95,231,155,.18), rgba(106,169,255,.18)); padding: 10px 14px; border-radius: 12px; font-weight: 700; }
-    .muted{ color: var(--muted); font-size: 14px; }
-  </style>
+  /* ---------- Glow keyframes ---------- */
+  @keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 0 rgba(255,255,255,0)); }
+    50%      { filter: drop-shadow(0 0 6px rgba(255,255,255,.08)); }
+  }
+  @keyframes hueShift {
+    0%   { --primary: #6aa9ff; --accent: #7af0d8; }
+    50%  { --primary: #7ac3ff; --accent: #8cf6e1; }
+    100% { --primary: #6aa9ff; --accent: #7af0d8; }
+  }
+
+  /* ---------- Header ---------- */
+  header.hero {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, box-shadow .25s ease;
+    overflow: clip;
+    isolation: isolate;
+  }
+  header.hero::after {
+    /* animated gradient ring for glow */
+    content: "";
+    position: absolute;
+    inset: -1px;           /* sits just outside the border */
+    border-radius: inherit;
+    background:
+      conic-gradient(from 0deg,
+        rgba(106,169,255,.0) 0deg,
+        rgba(106,169,255,.35) 90deg,
+        rgba(122,240,216,.35) 180deg,
+        rgba(106,169,255,.35) 270deg,
+        rgba(106,169,255,.0) 360deg);
+    filter: blur(18px) saturate(120%);
+    opacity: 0;
+    transition: opacity .35s ease, transform .35s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  header.hero:hover,
+  header.hero:focus-within {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow), var(--glow-outer);
+  }
+  header.hero:hover::after,
+  header.hero:focus-within::after {
+    opacity: .8;
+    transform: scale(1.01) rotate(2deg);
+    animation: hueShift 6s linear infinite;
+  }
+
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(106,169,255,.12);
+    color: var(--primary);
+    border: 1px solid rgba(106,169,255,.28);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.02) inset;
+  }
+  h1 { margin: 12px 0 6px; font-size: clamp(26px, 3vw, 34px); font-weight: 800; letter-spacing: .2px; }
+  .sub { color: var(--muted); margin: 0; }
+
+  /* ---------- Grid & Cards ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    overflow: clip;
+    isolation: isolate;
+  }
+  .card::before {
+    /* inner subtle gradient glow */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px 300px at 0% 0%, rgba(106,169,255,.06), transparent 60%),
+                radial-gradient(600px 300px at 100% 100%, rgba(122,240,216,.06), transparent 60%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .card::after {
+    /* outer glow ring */
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background:
+      conic-gradient(from 180deg,
+        rgba(94,226,138,.0) 0deg,
+        rgba(94,226,138,.45) 110deg,
+        rgba(106,169,255,.45) 220deg,
+        rgba(122,240,216,.45) 320deg,
+        rgba(94,226,138,.0) 360deg);
+    filter: blur(16px);
+    opacity: 0;
+    transition: opacity .35s ease, transform .35s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(122,240,216,.45);
+    box-shadow: var(--shadow), var(--glow-teal), var(--glow-blue);
+  }
+  .card:hover::after,
+  .card:focus-within::after {
+    opacity: .9;
+    transform: scale(1.01) rotate(1.5deg);
+    animation: hueShift 7s linear infinite;
+  }
+
+  .card h2{ margin: 0 0 8px; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+
+  /* ---------- Pills (badges) ---------- */
+  .pill{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(95,231,155,.12);
+    color: var(--success);
+    border: 1px solid rgba(95,231,155,.35);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+    will-change: transform;
+  }
+  .pill:hover, .pill:focus-visible{
+    transform: translateY(-1px);
+    border-color: rgba(95,231,155,.6);
+    box-shadow: var(--glow-green);
+    outline: none;
+  }
+
+  /* ---------- Requirement list ---------- */
+  ul.requirements{ list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+  .req{
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: center;
+    gap: 10px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    background: rgba(255,255,255,.02);
+    transition: border-color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
+  }
+  .req::before{
+    content: "✦";
+    width: 36px; height: 36px; display: grid; place-items: center;
+    border-radius: 10px;
+    background: rgba(106,169,255,.14);
+    color: var(--primary);
+    box-shadow: 0 0 0 1px rgba(106,169,255,.25) inset;
+    font-size: 16px;
+  }
+  .req strong{ font-weight: 800; }
+  .req small{ color: var(--muted); display: block; margin-top: 2px; }
+
+  .req:hover, .req:focus-within{
+    transform: translateY(-1px);
+    border-color: rgba(106,169,255,.45);
+    background: linear-gradient(180deg, rgba(106,169,255,.05), rgba(255,255,255,0));
+    box-shadow: var(--glow-blue);
+  }
+
+  /* ---------- Notes ---------- */
+  .notes{
+    margin-top: 24px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    isolation: isolate;
+    overflow: clip;
+  }
+  .notes::after{
+    content:"";
+    position:absolute; inset:-1px; border-radius:inherit;
+    background: conic-gradient(from 270deg,
+      rgba(106,169,255,.0) 0deg,
+      rgba(106,169,255,.4) 120deg,
+      rgba(122,240,216,.4) 240deg,
+      rgba(106,169,255,.0) 360deg);
+    filter: blur(16px);
+    opacity: 0;
+    transition: opacity .35s ease, transform .35s ease;
+    z-index:-1;
+    pointer-events:none;
+  }
+  .notes:hover, .notes:focus-within{
+    transform: translateY(-1px);
+    border-color: rgba(106,169,255,.45);
+    box-shadow: var(--shadow), var(--glow-blue), var(--glow-teal);
+  }
+  .notes:hover::after, .notes:focus-within::after{
+    opacity:.85; transform: scale(1.01);
+    animation: hueShift 8s linear infinite;
+  }
+  .notes h3{ margin: 0 0 10px; font-size: 18px; }
+  .notes ul{ margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+  .notes li::marker { color: var(--accent); }
+  .channel-tag{
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(106,169,255,.12);
+    border: 1px solid rgba(106,169,255,.25);
+    color: var(--primary); font-size: 14px;
+    transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  }
+  .channel-tag:hover{ transform: translateY(-1px); box-shadow: var(--glow-blue); border-color: rgba(106,169,255,.5); }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .goodluck{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, rgba(95,231,155,.18), rgba(106,169,255,.18));
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    letter-spacing: .2px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.02) inset;
+    transition: transform .25s ease, box-shadow .25s ease;
+    will-change: transform;
+  }
+  .goodluck:hover, .goodluck:focus-visible{
+    transform: translateY(-1px);
+    box-shadow: var(--glow-green), var(--glow-blue);
+    outline: none;
+  }
+  .muted{ color: var(--muted); font-size: 14px; }
+
+  /* ---------- Accessibility: reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
 </head>
 <body>
   <main class="wrap">
@@ -106,37 +322,38 @@
       <p class="sub">Check if you meet the eligibility for Hollow Tags V2 Creator program on your preferred platforms.</p>
     </header>
 
-    <section class="grid">
-      <article class="card">
-        <h2>YouTube 📺</h2>
-        <span class="pill">✅ Minimums</span>
-        <ul class="requirements">
+    <section class="grid" aria-label="Platform Requirements">
+      <article class="card" aria-labelledby="yt-title">
+        <h2 id="yt-title">YouTube 📺</h2>
+        <span class="pill" title="Minimums to qualify">✅ Minimums</span>
+        <ul class="requirements" role="list">
           <li class="req"><strong>250 subscribers</strong><small>Grow a core audience.</small></li>
           <li class="req"><strong>1K watch hours</strong><small>Last 28 days.</small></li>
           <li class="req"><strong>5K views</strong><small>Last 28 days.</small></li>
         </ul>
       </article>
-      <article class="card">
-        <h2>TikTok 📱</h2>
-        <span class="pill">✅ Minimums</span>
-        <ul class="requirements">
+
+      <article class="card" aria-labelledby="tt-title">
+        <h2 id="tt-title">TikTok 📱</h2>
+        <span class="pill" title="Minimums to qualify">✅ Minimums</span>
+        <ul class="requirements" role="list">
           <li class="req"><strong>500 followers</strong><small>Build engaged followers.</small></li>
           <li class="req"><strong>10K views</strong><small>Last 28 days.</small></li>
         </ul>
       </article>
     </section>
 
-    <section class="notes">
-      <h3>Additional Notes</h3>
+    <section class="notes" aria-labelledby="notes-title">
+      <h3 id="notes-title">Additional Notes</h3>
       <ul>
         <li>Do <strong>not ping staff</strong> to check your application status — we don’t have updates.</li>
         <li><strong>Watch out for scams.</strong> We will <strong>NEVER</strong> ask you to download files to become a Hollow Tags V2 Creator.</li>
-        <li>Please <strong>avoid spamming chat</strong> about your application. Instead, focus on creating great content, tag it <strong>#HollowTagsV2</strong>, and share it in <span style="color:var(--primary);">#1404278745640075334</span>.</li>
+        <li>Please <strong>avoid spamming chat</strong>. Instead, focus on creating great content, tag it <strong>#HollowTagsV2</strong>, and share it in <span class="channel-tag">#1404278745640075334</span>.</li>
       </ul>
     </section>
 
     <div class="footer">
-      <div class="goodluck">Good luck! 🏆🎉</div>
+      <div class="goodluck" role="status" aria-live="polite">Good luck! 🏆🎉</div>
       <div class="muted">Keep creating. Keep improving. You’ve got this.</div>
     </div>
   </main>
