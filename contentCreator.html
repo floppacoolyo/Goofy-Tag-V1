@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creator Minimum Requirements – Reva Tag</title>
+  <meta name="description" content="Creator Minimum Requirements for YouTube and TikTok with additional notes and safety reminders." />
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --panel: #11151a;
+      --card: #151a21;
+      --text: #e8edf3;
+      --muted: #a6b0c0;
+      --primary: #6aa9ff;
+      --accent: #7af0d8;
+      --warning: #ffd166;
+      --success: #5ee28a;
+      --danger: #ff6b6b;
+      --border: #202734;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
+      --radius-lg: 16px;
+      --radius-sm: 10px;
+      --radius-xs: 8px;
+      --gap: 16px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f8fb;
+        --panel: #ffffff;
+        --card: #ffffff;
+        --text: #0f1722;
+        --muted: #52607a;
+        --primary: #2458e6;
+        --accent: #0fb9b1;
+        --warning: #e0a800;
+        --success: #22c55e;
+        --danger: #e53935;
+        --border: #e7ecf3;
+        --shadow: 0 10px 30px rgba(16,24,40,.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font: 500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(106,169,255,.15), transparent 60%),
+                  radial-gradient(1200px 800px at 100% 10%, rgba(122,240,216,.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: .2px;
+    }
+
+    .wrap{
+      max-width: 960px;
+      margin: clamp(20px, 6vw, 56px) auto;
+      padding: 0 clamp(16px, 4vw, 24px);
+    }
+
+    header.hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      padding: clamp(20px, 4vw, 32px);
+      display: grid;
+      gap: 10px;
+      position: relative;
+      overflow: clip;
+    }
+
+    .eyebrow{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      background: rgba(106,169,255,.12);
+      color: var(--primary);
+      border: 1px solid rgba(106,169,255,.25);
+      padding: 6px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(24px, 3.2vw, 34px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .sub{
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(14px, 2vw, 18px);
+      margin-top: clamp(16px, 3vw, 24px);
+    }
+
+    .card{
+      grid-column: span 6;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(16px, 3vw, 22px);
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 780px) {
+      .card{ grid-column: 1 / -1; }
+    }
+
+    .card h2{
+      margin: 0 0 8px 0;
+      font-size: clamp(18px, 2.2vw, 22px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      background: rgba(95, 231, 155, .12);
+      color: var(--success);
+      border: 1px solid rgba(95, 231, 155, .3);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    ul.requirements{
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0 0;
+      display: grid;
+      gap: 10px;
+    }
+    .req{
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.02);
+    }
+    .req .icon{
+      width: 32px; height: 32px; display: grid; place-items: center;
+      border-radius: 8px; font-size: 18px; background: rgba(255,255,255,.06);
+    }
+    .req strong{ font-weight: 800; }
+    .req small{ color: var(--muted); display: block; margin-top: 2px; }
+
+    .notes{
+      background: linear-gradient(180deg, rgba(122,240,216,.09), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(16px, 3vw, 22px);
+      box-shadow: var(--shadow);
+      margin-top: clamp(16px, 3vw, 24px);
+    }
+    .notes h3{
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .notes ul{
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .notes li::marker { color: var(--accent); }
+    .notes strong { font-weight: 800; }
+
+    .channel-tag{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(106,169,255,.12);
+      border: 1px solid rgba(106,169,255,.25);
+      color: var(--primary);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .footer{
+      margin-top: clamp(20px, 4vw, 28px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .goodluck{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, rgba(95,231,155,.18), rgba(106,169,255,.18));
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+    .muted{
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Subtle hover */
+    .card:hover, .notes:hover, header.hero:hover{
+      transform: translateY(-1px);
+      transition: transform .2s ease;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero" aria-labelledby="title">
+      <span class="eyebrow" aria-hidden="true">#RevaTag</span>
+      <h1 id="title">Creator Minimum Requirements</h1>
+      <p class="sub">Check if you meet the eligibility for the Reva Tag Creator program on your preferred platforms. Keep building momentum and stay safe from scams.</p>
+    </header>
+
+    <section class="grid" aria-label="Platform Requirements">
+      <!-- YouTube Card -->
+      <article class="card" aria-labelledby="yt-title">
+        <h2 id="yt-title">YouTube <span aria-hidden="true">📺</span></h2>
+        <span class="pill" title="Minimums to qualify">✅ Minimums</span>
+        <ul class="requirements" role="list">
+          <li class="req">
+            <div class="icon" aria-hidden="true">✅</div>
+            <div>
+              <strong>250 subscribers</strong>
+              <small>Grow a core audience that follows your uploads.</small>
+            </div>
+          </li>
+          <li class="req">
+            <div class="icon" aria-hidden="true">⏱</div>
+            <div>
+              <strong>1K watch hours</strong>
+              <small>Measured over the last 28 days.</small>
+            </div>
+          </li>
+          <li class="req">
+            <div class="icon" aria-hidden="true">👁️</div>
+            <div>
+              <strong>5K views</strong>
+              <small>Also within the last 28 days.</small>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- TikTok Card -->
+      <article class="card" aria-labelledby="tt-title">
+        <h2 id="tt-title">TikTok <span aria-hidden="true">📱</span></h2>
+        <span class="pill" title="Minimums to qualify">✅ Minimums</span>
+        <ul class="requirements" role="list">
+          <li class="req">
+            <div class="icon" aria-hidden="true">✅</div>
+            <div>
+              <strong>500 followers</strong>
+              <small>Build engaged followers with consistent posts.</small>
+            </div>
+          </li>
+          <li class="req">
+            <div class="icon" aria-hidden="true">👁️</div>
+            <div>
+              <strong>10K views</strong>
+              <small>Measured over the last 28 days.</small>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes" aria-labelledby="notes-title">
+      <h3 id="notes-title">Additional Notes</h3>
+      <ul>
+        <li>Do <strong>not ping staff</strong> to check your application status — we don’t have updates.</li>
+        <li><strong>Watch out for scams.</strong> We will <strong>NEVER</strong> ask you to download files to become a Reva Tag Creator.</li>
+        <li>Please <strong>avoid spamming chat</strong> about your application. Instead, focus on creating great content, tag it <strong>#RevaTag</strong>, and share it in <span class="channel-tag">#1404278745640075334</span>.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <div class="goodluck" role="status" aria-live="polite">Good luck! 🏆🎉</div>
+      <div class="muted">Keep creating. Keep improving. You’ve got this.</div>
+    </div>
+  </main>
+</body>
+</html>
